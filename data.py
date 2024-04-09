@@ -7,6 +7,7 @@ import sys
 # Attempt to import sklearn. If not installed, install it.
 try:
     from sklearn.ensemble import IsolationForest
+    from sklearn.preprocessing import OneHotEncoder
 except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "scikit-learn"])
     from sklearn.ensemble import IsolationForest
