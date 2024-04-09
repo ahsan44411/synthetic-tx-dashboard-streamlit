@@ -34,6 +34,7 @@ def generate_clicked():
   )
   st.session_state.last_tx_timestamp = data.iloc[-1]["timestamp"]
   st.session_state.df = st.session_state.df.append(data, ignore_index=True)
+  st.session_state.df = detect_outliers_with_isolation_forest(st.session_state.df)
 
 
 def data_params_widget():
@@ -132,13 +133,6 @@ def data_table_widget():
   st.markdown('# Generated data:')
   st.markdown('The dataframe below holds the data generated so far:')
   st.session_state.table = st.table(st.session_state.df)
-
-# Inside app.py, update the generate_clicked function
-
-def generate_clicked():
-    # Existing code to generate data
-    # After appending the new data to st.session_state.df
-    st.session_state.df = detect_outliers_with_isolation_forest(st.session_state.df)
 
 # When displaying data in charts or tables, use the 'is_outlier' column to highlight outliers
 
