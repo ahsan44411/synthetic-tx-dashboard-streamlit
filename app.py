@@ -120,6 +120,8 @@ def metrics_widget():
       help="Number of fraudulent transactions"
   )
   st.session_state.last_tx_count = len(st.session_state.df)
+  suspicious_transactions = st.session_state.df['is_outlier'].sum()
+  st.metric("Suspicious Transactions", suspicious_transactions)
 
 
 def general_widget():
