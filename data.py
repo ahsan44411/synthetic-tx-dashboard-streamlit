@@ -1,6 +1,10 @@
 
 import random
 import pandas as pd
+# You might already have imports for pandas, datetime, etc.
+from sklearn.ensemble import IsolationForest
+from sklearn.preprocessing import OneHotEncoder
+import numpy as np
 
 from datetime import datetime, timedelta
 
@@ -39,10 +43,6 @@ def generate_timeseries_data(num_rows: int, start_timestamp: datetime, **kwargs)
         data.append(generate_transaction_row(**params))
     return pd.DataFrame(data)
 
-# You might already have imports for pandas, datetime, etc.
-from sklearn.ensemble import IsolationForest
-from sklearn.preprocessing import OneHotEncoder
-import numpy as np
 
 # Assuming your existing functions are defined here
 
